@@ -19,8 +19,6 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
 
   addContact = (name, number) => {
@@ -52,6 +50,10 @@ export class App extends Component {
     }));
   };
 
+  handleSubmit = (name, number) => {
+    this.addContact(name, number);
+  };
+
   render() {
     const { contacts, filter } = this.state;
 
@@ -61,7 +63,7 @@ export class App extends Component {
     return (
       <Container>
         <TitleH1>PhoneBook</TitleH1>
-        <ContactForm addContact={this.addContact} />
+        <ContactForm handleSubmit={this.handleSubmit} />
         <TitleH2>Contacts</TitleH2>
         <TitleH3>Find contacts by name</TitleH3>
         <SearchInput

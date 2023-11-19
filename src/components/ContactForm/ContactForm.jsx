@@ -15,8 +15,9 @@ export class ContactForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { name, number } = this.state;
+    const { handleSubmit } = this.props;
     if (name.trim() !== '' && number.trim() !== '') {
-      this.props.addContact(name.trim(), number.trim());
+      handleSubmit(name.trim(), number.trim());
       this.setState({ name: '', number: '' });
     }
   };
